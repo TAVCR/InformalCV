@@ -16,6 +16,7 @@
         :root {
             --print-scale: 1;
             --print-height: 297mm; /* Altura base A4 */
+            --v-offset: 0px; /* NUEVA VARIABLE: Desplazamiento vertical para afinación */
         }
 
         /* Aplicar la fuente "Montserrat" a todo */
@@ -110,7 +111,10 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start; /* Alineación del contenido interno al inicio */
-            margin: auto 0; /* CORRECCIÓN: Margen vertical automático para centrar el bloque */
+            margin: auto 0; /* Margen vertical automático para centrar el bloque */
+            
+            /* APLICAR DESPLAZAMIENTO VERTICAL */
+            transform: translateY(var(--v-offset)); 
         }
 
         /* Sección Inferior Horizontal Azul */
@@ -232,11 +236,21 @@
             <span id="scale-value" class="font-mono text-sky-400 font-bold text-sm">1.00</span>
         </div>
         
+        <label for="print-scale-slider" class="text-white text-xs mt-3">Ajuste de Escala (Zoom)</label>
         <input type="range" id="print-scale-slider" min="0.80" max="1.05" step="0.01" value="1.00" 
                 class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
+        
+        <div class="flex items-center justify-between border-t border-slate-500 pt-3 mt-3">
+            <h4 class="text-white text-xs font-bold uppercase tracking-wider">Ajuste Vertical</h4>
+            <span id="v-offset-value" class="font-mono text-sky-400 font-bold text-sm">0 px</span>
+        </div>
+        
+        <label for="print-v-align-slider" class="text-white text-xs">Desplazar Columna Derecha (px)</label>
+        <input type="range" id="print-v-align-slider" min="-25" max="25" step="1" value="0" 
+                class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
                 
-        <p class="text-[10px] text-slate-400 mt-1 leading-tight text-justify">
-            <span class="text-sky-400 font-bold">Instrucciones:</span> Ajusta el deslizador hasta que todo quepa. El sistema rellenará automáticamente el fondo azul inferior para cubrir la página A4 completa.
+        <p class="text-[10px] text-slate-400 mt-3 leading-tight text-justify">
+            <span class="text-sky-400 font-bold">Instrucciones:</span> Utiliza el deslizador vertical para centrar el texto blanco en el papel si la escala ha movido el contenido.
         </p>
     </div>
 
@@ -581,6 +595,9 @@
         const slider = document.getElementById('print-scale-slider');
         const output = document.getElementById('scale-value');
         const root = document.documentElement;
+        
+        const vAlignSlider = document.getElementById('print-v-align-slider');
+        const vOffsetValue = document.getElementById('v-offset-value');
 
         slider.oninput = function() {
             const scale = parseFloat(this.value);
@@ -591,6 +608,13 @@
             // Si la escala es 0.94, la página debe ser 297mm / 0.94 para ocupar el mismo espacio físico en papel.
             const adjustedHeight = 297 / scale;
             root.style.setProperty('--print-height', adjustedHeight + 'mm');
+        }
+        
+        // NUEVA FUNCIÓN PARA EL DESLIZADOR VERTICAL
+        vAlignSlider.oninput = function() {
+            const offset = parseInt(this.value);
+            vOffsetValue.innerHTML = offset + ' px';
+            root.style.setProperty('--v-offset', offset + 'px');
         }
         
         // Inicializar en español por defecto
