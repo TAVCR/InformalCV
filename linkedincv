@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Gustavo González</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente "Montserrat" con múltiples pesos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables CSS dinámicas */
+        :root {
+            --print-scale: 1;
+            --print-height: 297mm; /* Altura base A4 */
+        }
+
+        /* Aplicar la fuente "Montserrat" a todo */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #525659;
+            margin: 0;
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* --- VISTA DE DOCUMENTO A4 (WEB) --- */
+        .page-a4 {
+            background: white;
+            width: 210mm;
+            /* Usamos la variable de altura para previsualizar la compensación */
+            height: var(--print-height); 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: height 0.1s ease; /* Suavizar el cambio de tamaño */
+        }
+
+        /* --- REGLAS DE IMPRESIÓN --- */
+        @page {
+            margin: 0; 
+            size: A4; 
+        }
+
+        @media print {
+            body {
+                background-color: white !important;
+                padding: 0 !important;
+                display: block !important;
+                
+                /* ESCALA Y COMPENSACIÓN */
+                zoom: var(--print-scale); 
+                /* Firefox */
+                -moz-transform: scale(var(--print-scale));
+                -moz-transform-origin: top left;
+                width: 100% !important;
+            }
+
+            .page-a4 {
+                width: 100% !important;
+                /* Aquí forzamos la altura compensada para llenar la hoja física */
+                height: var(--print-height) !important; 
+                box-shadow: none !important;
+                margin: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            /* Ocultar interfaz */
+            .no-print, button, .fixed, #print-controls {
+                display: none !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* --- ESTRUCTURA FLEXIBLE --- */
+        
+        .top-row {
+            display: flex;
+            flex-grow: 1; /* Ocupa todo el espacio vertical disponible */
+            align-items: stretch; /* Estira las columnas al máximo */
+        }
+
+        /* Sidebar Azul */
+        .sidebar {
+            width: 32%;
+            background-color: #1e293b;
+            color: #f1f5f9;
+            padding: 3rem 1.5rem 2rem 1.5rem; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Contenido Principal Blanco */
+        .main-content {
+            width: 68%;
+            background-color: #ffffff;
+            /* AJUSTE REALIZADO: Reducido a 1.5rem para subir el bloque de texto */
+            padding: 1.5rem 2.5rem 1rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* MODIFICACIÓN: Centrado vertical del contenido */
+        }
+
+        /* Sección Inferior Horizontal Azul */
+        .bottom-bar {
+            background-color: #1e293b; 
+            color: #f1f5f9;
+            padding: 1.5rem 2.5rem 3rem 2.5rem;
+            border-top: none; 
+            flex-shrink: 0; /* Evita que se encoja si falta espacio */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* --- ESTILOS DE TEXTO --- */
+        h1 { font-size: 2.4rem; font-weight: 700; color: #1e293b; line-height: 1; margin-bottom: 0.25rem; }
+        h2 { font-size: 1.2rem; font-weight: 600; color: #0369a1; margin-bottom: 0.5rem; }
+        
+        h3 { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            letter-spacing: 0.05em; 
+            border-bottom-width: 2px; 
+            padding-bottom: 0.25rem; 
+            margin-bottom: 0.75rem; 
+            text-transform: uppercase;
+        }
+        
+        .main-content h3 { color: #0369a1; border-color: #bae6fd; margin-top: 1.5rem; }
+        .main-content section:first-of-type h3 { margin-top: 0; }
+        
+        .sidebar h3, .bottom-bar h3 { color: #38bdf8; border-color: #334155; margin-bottom: 0.5rem; }
+
+        h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
+        .main-content h4 { color: #334155; margin-top: 1rem; }
+        .sidebar h4, .bottom-bar h4 { color: #e2e8f0; margin-top: 0.5rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+        /* COMPRESIÓN Y JUSTIFICACIÓN */
+        p, li { 
+            font-size: 0.85rem; 
+            line-height: 1.35; 
+        }
+        
+        .main-content p, .main-content li { 
+            color: #475569; 
+            text-align: justify !important;
+        }
+
+        .sidebar p, .sidebar li { 
+            color: #cbd5e1;
+            text-align: justify !important; 
+        }
+        
+        .bottom-bar p, .bottom-bar li { color: #cbd5e1; }
+
+        ul { padding-left: 0; list-style-position: inside; }
+        .main-content ul { list-style-type: disc; margin-top: 0.25rem; }
+        .sidebar ul, .bottom-bar ul { list-style-type: none; }
+        
+        .sidebar li, .bottom-bar li { margin-bottom: 0.2rem; }
+
+        /* Estilos de perfil */
+        #main-profile-text {
+            margin-bottom: 1rem;
+            margin-top: 2em !important; 
+            line-height: 1.5; 
+            text-align: justify !important;
+        }
+        #main-profile-title { margin-bottom: 0; }
+
+        .sidebar-distribute {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .profile-img {
+            width: 200px; 
+            height: 200px;
+            object-fit: cover;
+            border-radius: 9999px;
+            border: 4px solid #38bdf8;
+            margin: 0 auto 0 auto;
+            display: block;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon { width: 1rem; height: 1rem; color: #38bdf8; margin-right: 0.5rem; flex-shrink: 0; margin-top: 2px; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 0.5rem; }
+
+        .contact-text { word-break: break-all; }
+
+        @media print {
+            .sidebar { padding: 3rem 1.5rem 2rem 1.5rem !important; }
+            /* AJUSTE REALIZADO TAMBIÉN EN PRINT: Reducido a 1.5rem */
+            .main-content { padding: 1.5rem 2.5rem 0 2.5rem !important; }
+            .bottom-bar { padding: 1.5rem 2.5rem 3rem 2.5rem !important; }
+            
+            #main-profile-text {
+                margin-top: 2em !important; 
+                margin-bottom: 1rem !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- CONTROL DE ESCALA PARA IMPRESIÓN -->
+    <div id="print-controls" class="fixed bottom-32 right-8 z-50 bg-slate-800 p-4 rounded-lg shadow-xl border border-slate-600 print:hidden flex flex-col gap-2 w-64 backdrop-blur-sm bg-opacity-95">
+        <div class="flex items-center justify-between border-b border-slate-500 pb-2 mb-1">
+            <h4 class="text-white text-xs font-bold uppercase tracking-wider">Calibrar Impresión</h4>
+            <span id="scale-value" class="font-mono text-sky-400 font-bold text-sm">1.00</span>
+        </div>
+        
+        <input type="range" id="print-scale-slider" min="0.80" max="1.05" step="0.01" value="1.00" 
+                class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
+                
+        <p class="text-[10px] text-slate-400 mt-1 leading-tight text-justify">
+            <span class="text-sky-400 font-bold">Instrucciones:</span> Ajusta el deslizador hasta que todo quepa. El sistema rellenará automáticamente el fondo azul inferior para cubrir la página A4 completa.
+        </p>
+    </div>
+
+    <!-- Botones Flotantes -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-3 print:hidden z-50">
+        <button onclick="toggleLanguage()" id="lang-btn" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 cursor-pointer border-2 border-white/20 backdrop-blur-sm w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+            <span id="lang-btn-text">Ver en Español</span>
+        </button>
+        <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 cursor-pointer border-2 border-white/20 backdrop-blur-sm w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            <span>PDF</span>
+        </button>
+    </div>
+
+    <!-- PÁGINA A4 -->
+    <div class="page-a4 shadow-2xl">
+        
+        <!-- ZONA SUPERIOR: 2 COLUMNAS -->
+        <div class="top-row">
+            
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <!-- Foto -->
+                <div style="flex-shrink: 0;">
+                    <img src="https://i.postimg.cc/c4wyz1QF/FOTO-PARA-CV-GUSTAVO.png" alt="Gustavo González" class="profile-img">
+                </div>
+
+                <!-- Contenedor Distribuido -->
+                <div class="sidebar-distribute">
+                    
+                    <!-- Contacto -->
+                    <div>
+                        <h3 id="sidebar-contact-title">CONTACT</h3>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <span class="contact-text">+506 85020909</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            <span class="break-all contact-text">dimension.interactiva@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.102 1.101m.758 4.899l-5.656 5.656" /></svg>
+                            <span class="break-all contact-text">tavcr.github.io/oferta-digital/</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657l-4.243-4.243a1 1 0 00-1.414 0l-4.243 4.243a1 1 0 001.414 1.414L12 13.414l2.243 2.243a1 1 0 001.414 0l2.243-2.243a1 1 0 000 1.414zM12 21a9 9 0 100-18 9 9 0 000 18z" /></svg>
+                            <span class="contact-text">San José, Costa Rica</span>
+                        </div>
+                    </div>
+
+                    <!-- Academic -->
+                    <div>
+                        <h3 id="sidebar-academic-title">ACADEMIC</h3>
+                        <div class="mb-2">
+                            <p id="sidebar-academic-degree" class="font-bold text-white">Master's in Industrial Engineering</p>
+                            <p id="sidebar-academic-uni" class="italic text-slate-400">Interamericana University of Costa Rica</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div>
+                        <h3 id="sidebar-skills-title">CORE SKILLS</h3>
+                        <ul id="sidebar-skills-list" class="space-y-2">
+                            <li><strong>PRODUCCIÓN CREATIVA</strong></li>
+                            <li>End-to-End Video Production & Color Grading</li>
+                            <li>Professional Photography (RAW) & On-Screen Graphics</li>
+                            <li>Professional Audio Design & Post-Production (Resolve/Audition)</li>
+                            <li><strong>INNOVACIÓN TÉCNICA</strong></li>
+                            <li>AI Integration: ComfyUI for Image Gen & AI-Assisted Coding for Workflow Optimization</li>
+                            <li>Process & Workflow Management with Emerging Tools</li>
+                            <li><strong>GESTIÓN</strong></li>
+                            <li>Strategic Content Planning for Digital Campaigns</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <header class="mb-8">
+                    <h1 class="uppercase">GUSTAVO GONZÁLEZ</h1>
+                    <h2 class="uppercase">
+                        <span id="main-role">SENIOR MULTIMEDIA PRODUCER</span>
+                        <span id="main-subrole" class="block text-lg font-medium text-slate-500 normal-case mt-1">(Video • Photography • Graphic Design • Post-Production • Audio)</span>
+                    </h2>
+                </header>
+
+                <section>
+                    <h3 id="main-profile-title">PROFESSIONAL PROFILE</h3>
+                    <p id="main-profile-text" class="text-justify">
+                        Senior Multimedia Producer con +25 años de experiencia, fusionando video profesional, fotografía, diseño gráfico y audio de alta gama con innovación impulsada por IA. Como Ingeniero Industrial, optimizo workflows para problemas del 2025: desde generación de imágenes con ComfyUI hasta automatización de apps básicas vía código asistido por IA. Entrego assets digitales de alto impacto, adaptándome a herramientas emergentes para elevar marcas en un ecosistema digital volátil.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 id="main-exp-title">PROFESSIONAL EXPERIENCE</h3>
+                    
+                    <div class="mb-6">
+                        <h4 id="job1-title" class="text-lg">DIGITAL CONTENT PRODUCER</h4>
+                        <p id="job1-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Freelance / Independent Consultant | 2018 – Present</p>
+                        <p id="job1-desc" class="mb-2 text-justify">
+                            Strategic production of visual content for diverse clients (Social Media/Digital Campaigns).
+                        </p>
+                        <ul id="job1-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
+                            <li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos, midiendo engagement via analytics.</li><li>Integré AI en producción: Usando ComfyUI (Flux, Nanobanana, Reve) para generar imágenes custom y optimizar código para apps básicas, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable para digital campaigns con ROI medible.</li>
+                        </ul>
+                    </div>
+
+                    <div> 
+                        <h4 id="job2-title" class="text-lg">SENIOR AUDIO DESIGNER & VOICE ARTIST</h4>
+                        <p id="job2-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Foundational Experience | Multiple Corporate Clients | 2001 – 2018</p>
+                        <p id="job2-desc" class="mb-2 text-justify">
+                            17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.
+                        </p>
+                        <ul id="job2-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
+                            <li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), ahora potenciados con AI para eficiencia en 2025.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- ZONA INFERIOR: HORIZONTAL AZUL -->
+        <div class="bottom-bar">
+            <h3 id="footer-main-title">TECHNICAL ARSENAL</h3>
+            <p id="footer-summary-text" class="text-sm italic mb-4 text-slate-300">Uso estos tools para workflows híbridos: AI acelera prototipos, hardware asegura calidad pro.</p>
+            <div class="footer-grid">
+                
+                <!-- Col 1: Software -->
+                <div>
+                    <h4 id="footer-stack-primary">PRIMARY SOFTWARE</h4>
+                    <ul id="footer-list-primary">
+                        <li>DaVinci Resolve Studio (para editing AI-enhanced)</li>
+                        <li>Adobe Audition (audio mastering)</li>
+                        <li>Lightroom (photo optimization)</li>
+                    </ul>
+                    
+                    <h4 id="footer-stack-secondary">SECONDARY SOFTWARE</h4>
+                    <ul id="footer-list-secondary">
+                        <li>Canva Pro (gráficos rápidos)</li>
+                        <li>ComfyUI/ElevenLabs (AI gen & voice synthesis)</li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Hardware -->
+                <div>
+                    <h4 id="footer-stack-cameras">CÁMARAS Y LENTES</h4>
+                    <ul id="footer-list-cameras">
+                        <li>Canon R5 II con RF 24-105mm f/2.8 L y RF 35mm f/1.8 STM —para capturas 8K raw en entornos dinámicos.</li>
+                    </ul>
+
+                    <h4 id="footer-stack-workstation">ESTACIÓN DE TRABAJO</h4>
+                    <ul id="footer-list-workstation">
+                        <li>PC i9-13900KF + RTX 4090 (optimizado para AI rendering)</li>
+                        <li>Samsung S25 Ultra (mobile production)</li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Audio & Lighting -->
+                <div>
+                    <h4 id="footer-stack-audio">EQUIPO DE AUDIO</h4>
+                    <ul id="footer-list-audio">
+                        <li>Neumann U87/M149 con MT48 Interface —para vozovers broadcast-quality.</li>
+                    </ul>
+
+                    <h4 id="footer-stack-lighting">ILUMINACIÓN Y SOPORTES</h4>
+                    <ul id="footer-list-lighting">
+                        <li>Godox V1/AD300 Pro</li>
+                        <li>Pro Master LEDs</li>
+                        <li>DJI Osmo Mobile 6 —para setups móviles y eficientes.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                langBtnText: "Ver en Español",
+                // Títulos de Sidebar
+                sidebarContact: "CONTACT",
+                sidebarAcademic: "ACADEMIC",
+                sidebarAcademicDegree: "Master's in Industrial Engineering",
+                sidebarAcademicUni: "Interamericana University of Costa Rica",
+                sidebarSkills: "CORE SKILLS",
+                // MODIFICADO: Nueva estructura de habilidades EN
+                sidebarSkillsList: `<li><strong>CREATIVE PRODUCTION</strong></li><li>End-to-End Video Production & Color Grading</li><li>Professional Photography (RAW) & On-Screen Graphics</li><li>Professional Audio Design & Post-Production (Resolve/Audition)</li><li><strong>TECHNICAL INNOVATION</strong></li><li>AI Integration: ComfyUI for Image Gen & AI-Assisted Coding for Workflow Optimization</li><li>Process & Workflow Management with Emerging Tools</li><li><strong>MANAGEMENT</strong></li><li>Strategic Content Planning for Digital Campaigns</li>`,
+                
+                mainRole: "SENIOR MULTIMEDIA PRODUCER",
+                mainSubrole: "(Video • Photography • Graphic Design • Post-Production • Audio)",
+                mainProfileTitle: "PROFESSIONAL PROFILE",
+                mainProfileText: "Senior Multimedia Producer with 25+ years experience, fusing professional video, photography, graphic design, and high-end audio with AI-driven innovation. As an Industrial Engineer, I optimize workflows for 2025 problems: from image generation with ComfyUI to basic app automation via AI-assisted coding. I deliver high-impact digital assets, adapting to emerging tools to elevate brands in a volatile digital ecosystem.",
+                mainExpTitle: "PROFESSIONAL EXPERIENCE",
+                
+                job1Title: "DIGITAL CONTENT PRODUCER",
+                job1Meta: "Freelance / Independent Consultant | 2018 – Present",
+                job1Desc: "Strategic production of visual content for diverse clients (Social Media/Digital Campaigns).",
+                job1List: `<li>Developed C-Log 2 video and RAW photo workflows that increased social campaign quality by 40% for various clients, measuring engagement via analytics.</li><li>Integrated AI into production: Used ComfyUI (Flux, Nanobanana, Reve) for custom image generation and optimized coding for basic apps, reducing post-production times by 50%.</li><li>Animated dynamic graphics in DaVinci Resolve and broadcast audio in Adobe Audition/Canva, delivering scalable content for digital campaigns with measurable ROI.</li>`,
+
+                job2Title: "SENIOR AUDIO DESIGNER & VOICE ARTIST",
+                job2Meta: "Foundational Experience | Multiple Corporate Clients | 2001 – 2018",
+                job2Desc: "17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.",
+                job2List: `<li>Key voice for global brands (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrating Adobe Audition expertise to Fairlight in Resolve for modern workflows.</li><li>Managed complete audio cycles (scripting, casting, mix), now powered by AI for 2025 efficiency.</li>`,
+
+                // Títulos de Footer EN
+                footerMainTitle: "TECHNICAL ARSENAL",
+                footerSummaryText: "I use these tools for hybrid workflows: AI accelerates prototypes, hardware ensures pro quality.",
+                
+                footerStackPrimary: "PRIMARY SOFTWARE",
+                footerListPrimary: `<li>DaVinci Resolve Studio (for AI-enhanced editing)</li><li>Adobe Audition (audio mastering)</li><li>Lightroom (photo optimization)</li>`,
+                
+                footerStackSecondary: "SECONDARY SOFTWARE",
+                footerListSecondary: `<li>Canva Pro (quick graphics)</li><li>ComfyUI/ElevenLabs (AI gen & voice synthesis)</li>`,
+                
+                footerStackCameras: "CAMERAS & LENSES",
+                footerListCameras: `<li>Canon R5 II with RF 24-105mm f/2.8 L and RF 35mm f/1.8 STM —for 8K raw capture in dynamic environments.</li>`,
+                
+                footerStackWorkstation: "WORKSTATION",
+                footerListWorkstation: `<li>PC i9-13900KF + RTX 4090 (optimized for AI rendering)</li><li>Samsung S25 Ultra (mobile production)</li>`,
+                
+                footerStackAudio: "AUDIO GEAR",
+                footerListAudio: `<li>Neumann U87/M149 with MT48 Interface —for broadcast-quality voiceovers.</li>`,
+                
+                footerStackLighting: "LIGHTING & GRIP",
+                footerListLighting: `<li>Godox V1/AD300 Pro</li><li>Pro Master LEDs</li><li>DJI Osmo Mobile 6 —for mobile and efficient setups.</li>`
+            },
+            es: {
+                langBtnText: "View in English",
+                // Títulos de Sidebar ES
+                sidebarContact: "CONTACTO",
+                sidebarAcademic: "FORMACIÓN ACADÉMICA",
+                sidebarAcademicDegree: "Maestría en Ingeniería Industrial",
+                sidebarAcademicUni: "Universidad Interamericana de Costa Rica",
+                sidebarSkills: "HABILIDADES CLAVE",
+                // MODIFICADO: Nueva estructura de habilidades ES
+                sidebarSkillsList: `<li><strong>PRODUCCIÓN CREATIVA</strong></li><li>End-to-End Video Production & Color Grading</li><li>Professional Photography (RAW) & On-Screen Graphics</li><li>Professional Audio Design & Post-Production (Resolve/Audition)</li><li><strong>INNOVACIÓN TÉCNICA</strong></li><li>AI Integration: ComfyUI for Image Gen & AI-Assisted Coding for Workflow Optimization</li><li>Process & Workflow Management with Emerging Tools</li><li><strong>GESTIÓN</strong></li><li>Strategic Content Planning for Digital Campaigns</li>`,
+                
+                mainRole: "PRODUCTOR MULTIMEDIA SENIOR",
+                mainSubrole: "(Video • Fotografía • Diseño Gráfico • Postproducción • Audio)",
+                mainProfileTitle: "PERFIL PROFESIONAL",
+                // PERFIL PROFESIONAL AJUSTADO (usando "impulsada por IA" y "código asistido por IA")
+                mainProfileText: "Senior Multimedia Producer con +25 años de experiencia, fusionando video profesional, fotografía, diseño gráfico y audio de alta gama con innovación impulsada por IA. Como Ingeniero Industrial, optimizo workflows para problemas del 2025: desde generación de imágenes con ComfyUI hasta automatización de apps básicas vía código asistido por IA. Entrego assets digitales de alto impacto, adaptándome a herramientas emergentes para elevar marcas en un ecosistema digital volátil.",
+                mainExpTitle: "EXPERIENCIA PROFESIONAL",
+                
+                job1Title: "PRODUCTOR DE CONTENIDO DIGITAL",
+                job1Meta: "Freelance / Consultor Independiente | 2018 – Presente",
+                job1Desc: "Producción estratégica de contenido visual para clientes diversos (Redes Sociales/Campañas Digitales).",
+                job1List: `<li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos, midiendo engagement via analytics.</li><li>Integré AI en producción: Usando ComfyUI (Flux, Nanobanana, Reve) para generar imágenes custom y optimizar código para apps básicas, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable para digital campaigns con ROI medible.</li>`, 
+
+                job2Title: "DISEÑADOR DE AUDIO SENIOR Y LOCUTOR",
+                job2Meta: "Experiencia Fundacional | Múltiples Clientes Corporativos | 2001 – 2018",
+                job2Desc: "Más de 17 años como diseñador de audio/voz principal para grandes marcas. Voz actual de AMOR FM.",
+                job2List: `<li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), ahora potenciados con AI para eficiencia en 2025.</li>`,
+                
+                // Títulos de Footer ES
+                footerMainTitle: "ARSENAL TÉCNICO",
+                footerSummaryText: "Uso estos tools para workflows híbridos: AI acelera prototipos, hardware asegura calidad pro.",
+                
+                footerStackPrimary: "SOFTWARE PRINCIPAL",
+                footerListPrimary: `<li>DaVinci Resolve Studio (para editing AI-enhanced)</li><li>Adobe Audition (audio mastering)</li><li>Lightroom (photo optimization)</li>`,
+                
+                footerStackSecondary: "SOFTWARE SECUNDARIO",
+                footerListSecondary: `<li>Canva Pro (gráficos rápidos)</li><li>ComfyUI/ElevenLabs (AI gen & voice synthesis)</li>`,
+                
+                footerStackCameras: "CÁMARAS Y LENTES",
+                footerListCameras: `<li>Canon R5 II con RF 24-105mm f/2.8 L y RF 35mm f/1.8 STM —para capturas 8K raw en entornos dinámicos.</li>`,
+                
+                footerStackWorkstation: "ESTACIÓN DE TRABAJO",
+                footerListWorkstation: `<li>PC i9-13900KF + RTX 4090 (optimizado para AI rendering)</li><li>Samsung S25 Ultra (mobile production)</li>`,
+                
+                footerStackAudio: "EQUIPO DE AUDIO",
+                footerListAudio: `<li>Neumann U87/M149 con MT48 Interface —para vozovers broadcast-quality.</li>`,
+                
+                footerStackLighting: "ILUMINACIÓN Y SOPORTES",
+                footerListLighting: `<li>Godox V1/AD300 Pro</li><li>Pro Master LEDs</li><li>DJI Osmo Mobile 6 —para setups móviles y eficientes.</li>`
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            const t = translations[currentLang];
+            
+            document.getElementById('html-tag').lang = currentLang;
+            document.getElementById('lang-btn-text').innerText = t.langBtnText;
+
+            // Sidebar
+            document.getElementById('sidebar-contact-title').innerText = t.sidebarContact;
+            document.getElementById('sidebar-academic-title').innerText = t.sidebarAcademic;
+            document.getElementById('sidebar-academic-degree').innerText = t.sidebarAcademicDegree;
+            document.getElementById('sidebar-academic-uni').innerText = t.sidebarAcademicUni;
+            document.getElementById('sidebar-skills-title').innerText = t.sidebarSkills;
+            document.getElementById('sidebar-skills-list').innerHTML = t.sidebarSkillsList;
+
+            document.getElementById('main-role').innerText = t.mainRole;
+            document.getElementById('main-subrole').innerText = t.mainSubrole;
+            document.getElementById('main-profile-title').innerText = t.mainProfileTitle;
+            document.getElementById('main-profile-text').innerText = t.mainProfileText;
+            document.getElementById('main-exp-title').innerText = t.mainExpTitle;
+
+            document.getElementById('job1-title').innerText = t.job1Title;
+            document.getElementById('job1-meta').innerText = t.job1Meta;
+            document.getElementById('job1-desc').innerText = t.job1Desc;
+            document.getElementById('job1-list').innerHTML = t.job1List;
+
+            document.getElementById('job2-title').innerText = t.job2Title;
+            document.getElementById('job2-meta').innerText = t.job2Meta;
+            document.getElementById('job2-desc').innerText = t.job2Desc;
+            document.getElementById('job2-list').innerHTML = t.job2List;
+
+            document.getElementById('footer-main-title').innerText = t.footerMainTitle;
+            // NEW SUMMARY TEXT
+            document.getElementById('footer-summary-text').innerText = t.footerSummaryText;
+            
+            document.getElementById('footer-stack-primary').innerText = t.footerStackPrimary;
+            document.getElementById('footer-list-primary').innerHTML = t.footerListPrimary;
+            
+            document.getElementById('footer-stack-secondary').innerText = t.footerStackSecondary;
+            document.getElementById('footer-list-secondary').innerHTML = t.footerListSecondary;
+            
+            document.getElementById('footer-stack-cameras').innerText = t.footerStackCameras;
+            document.getElementById('footer-list-cameras').innerHTML = t.footerListCameras;
+            
+            document.getElementById('footer-stack-workstation').innerText = t.footerStackWorkstation;
+            document.getElementById('footer-list-workstation').innerHTML = t.footerListWorkstation;
+            
+            document.getElementById('footer-stack-audio').innerText = t.footerStackAudio;
+            document.getElementById('footer-list-audio').innerHTML = t.footerListAudio;
+            
+            document.getElementById('footer-stack-lighting').innerText = t.footerStackLighting;
+            document.getElementById('footer-list-lighting').innerHTML = t.footerListLighting;
+        }
+
+        // CONTROL DE ESCALA Y COMPENSACIÓN DE ALTURA
+        const slider = document.getElementById('print-scale-slider');
+        const output = document.getElementById('scale-value');
+        const root = document.documentElement;
+
+        slider.oninput = function() {
+            const scale = parseFloat(this.value);
+            output.innerHTML = scale.toFixed(2);
+            root.style.setProperty('--print-scale', scale);
+            
+            // Compensación automática de altura:
+            // Si la escala es 0.94, la página debe ser 297mm / 0.94 para ocupar el mismo espacio físico en papel.
+            const adjustedHeight = 297 / scale;
+            root.style.setProperty('--print-height', adjustedHeight + 'mm');
+        }
+        
+        // Inicializar en español por defecto
+        toggleLanguage();
+        currentLang = 'es'; // Forzar que el primer clic de toggleLanguage lo pase a EN
+    </script>
+</body>
+</html>
