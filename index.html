@@ -109,7 +109,8 @@
             padding: 1.5rem 2.5rem 1rem 2.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* CORRECCIÓN: Alineación al inicio (arriba) para layout A4 */
+            justify-content: flex-start; /* Alineación del contenido interno al inicio */
+            margin: auto 0; /* CORRECCIÓN: Margen vertical automático para centrar el bloque */
         }
 
         /* Sección Inferior Horizontal Azul */
@@ -476,8 +477,8 @@
                 sidebarAcademicDegree: "Maestría en Ingeniería Industrial",
                 sidebarAcademicUni: "Universidad Interamericana de Costa Rica",
                 sidebarSkills: "HABILIDADES CLAVE",
-                // MODIFICADO: Nueva estructura de habilidades ES
-                sidebarSkillsList: `<li><strong>PRODUCCIÓN CREATIVA</strong></li><li>End-to-End Video Production & Color Grading</li><li>Professional Photography (RAW) & On-Screen Graphics</li><li>Professional Audio Design & Post-Production (Resolve/Audition)</li><li><strong>INNOVACIÓN TÉCNICA</strong></li><li>AI Integration: ComfyUI for Image Gen & AI-Assisted Coding for Workflow Optimization</li><li>Process & Workflow Management with Emerging Tools</li><li><strong>GESTIÓN</strong></li><li>Strategic Content Planning for Digital Campaigns</li>`,
+                // MODIFICADO: Nueva estructura de habilidades ES - Traducimos los títulos fuertes y los detalles.
+                sidebarSkillsList: `<li><strong>PRODUCCIÓN CREATIVA</strong></li><li>Producción de Video Integral y Etalonaje (Color Grading)</li><li>Fotografía Profesional (RAW) y Gráficos en Pantalla</li><li>Diseño y Post-Producción de Audio Profesional (Resolve/Audition)</li><li><strong>INNOVACIÓN TÉCNICA</strong></li><li>Integración de IA: ComfyUI para Generación de Imagen y Código Asistido por IA para Optimización de Flujos</li><li>Gestión de Procesos y Flujos con Herramientas Emergentes</li><li><strong>GESTIÓN</strong></li><li>Planificación Estratégica de Contenido para Campañas Digitales</li>`,
                 
                 mainRole: "PRODUCTOR MULTIMEDIA SENIOR",
                 mainSubrole: "(Video • Fotografía • Diseño Gráfico • Postproducción • Audio)",
@@ -501,19 +502,19 @@
                 footerSummaryText: "Uso estos tools para workflows híbridos: AI acelera prototipos, hardware asegura calidad pro.",
                 
                 footerStackPrimary: "SOFTWARE PRINCIPAL",
-                footerListPrimary: `<li>DaVinci Resolve Studio (para editing AI-enhanced)</li><li>Adobe Audition (audio mastering)</li><li>Lightroom (photo optimization)</li>`,
+                footerListPrimary: `<li>DaVinci Resolve Studio (para edición asistida por IA)</li><li>Adobe Audition (masterización de audio)</li><li>Lightroom (optimización de fotografía)</li>`,
                 
                 footerStackSecondary: "SOFTWARE SECUNDARIO",
-                footerListSecondary: `<li>Canva Pro (gráficos rápidos)</li><li>ComfyUI/ElevenLabs (AI gen & voice synthesis)</li>`,
+                footerListSecondary: `<li>Canva Pro (gráficos rápidos)</li><li>ComfyUI/ElevenLabs (generación IA y síntesis de voz)</li>`,
                 
                 footerStackCameras: "CÁMARAS Y LENTES",
                 footerListCameras: `<li>Canon R5 II con RF 24-105mm f/2.8 L y RF 35mm f/1.8 STM —para capturas 8K raw en entornos dinámicos.</li>`,
                 
                 footerStackWorkstation: "ESTACIÓN DE TRABAJO",
-                footerListWorkstation: `<li>PC i9-13900KF + RTX 4090 (optimizado para AI rendering)</li><li>Samsung S25 Ultra (mobile production)</li>`,
+                footerListWorkstation: `<li>PC i9-13900KF + RTX 4090 (optimizado para renderizado IA)</li><li>Samsung S25 Ultra (producción móvil)</li>`,
                 
                 footerStackAudio: "EQUIPO DE AUDIO",
-                footerListAudio: `<li>Neumann U87/M149 con MT48 Interface —para vozovers broadcast-quality.</li>`,
+                footerListAudio: `<li>Neumann U87/M149 con MT48 Interface —para vozovers con calidad broadcast.</li>`,
                 
                 footerStackLighting: "ILUMINACIÓN Y SOPORTES",
                 footerListLighting: `<li>Godox V1/AD300 Pro</li><li>Pro Master LEDs</li><li>DJI Osmo Mobile 6 —para setups móviles y eficientes.</li>`
