@@ -102,12 +102,12 @@
             flex-direction: column;
         }
 
-        /* Contenido Principal Blanco (Cambiado a gris claro para contraste de logos) */
+        /* Contenido Principal Blanco (Fondo revertido a blanco) */
         .main-content {
             width: 68%;
-            background-color: #f0f0f0; /* Gris muy claro */
+            background-color: #ffffff; /* Revertido a blanco */
             /* AJUSTE DE ESPACIADO SUPERIOR Y INFERIOR MÁS COMPACTO */
-            padding: 1rem 2.5rem 1rem 2.5rem; 
+            padding: 1rem 2.5rem 1rem 2.5rem; /* Reducido el padding superior/inferior */
             display: flex;
             flex-direction: column;
             justify-content: flex-start; /* Alineación del contenido interno al inicio */
@@ -229,12 +229,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Aumento de la separación entre logos */
+            gap: 10px; /* Separación reducida */
             margin-top: 8px;
         }
         
         .brand-logos img {
-            height: 35px; /* TAMAÑO AUMENTADO para mejor visibilidad */
+            height: 135px; /* TAMAÑO MODIFICADO: 45px * 3 = 135px */
             width: auto;
             opacity: 0.85; /* Aumento de opacidad */
         }
@@ -245,6 +245,7 @@
             .main-content { 
                 padding: 1rem 2.5rem 0 2.5rem !important; /* Más compacto en impresión */
                 border-left: 2px solid #bae6fd !important; /* Asegurar el borde en impresión */
+                background-color: #ffffff !important; /* Asegurar blanco puro en impresión */
             }
             .bottom-bar { padding: 1.5rem 2.5rem 3rem 2.5rem !important; }
             
