@@ -234,10 +234,15 @@
         }
         
         .brand-logos img {
-            height: 135px; /* TAMAÑO MODIFICADO: 45px * 3 = 135px */
+            height: 135px; /* TAMAÑO BASE */
             width: auto;
             opacity: 0.85; /* Aumento de opacidad */
         }
+        
+        /* AJUSTES INDIVIDUALES DE LOGO */
+        #logo-neumann { height: 118.8px !important; } /* 135 * 0.88 */
+        #logo-canon { height: 141.75px !important; } /* 135 * 1.05 */
+        #logo-uad { height: 148.5px !important; } /* 135 * 1.10 */
 
         @media print {
             .sidebar { padding: 3rem 1.5rem 2rem 1.5rem !important; }
@@ -408,9 +413,9 @@
                 <footer class="main-content-footer">
                     Utilizo tecnología Neumann, Canon y Universal Audio.
                     <div class="brand-logos">
-                         <img src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
-                         <img src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
-                         <img src="https://i.postimg.cc/4YSG0xbJ/UAD-LOGO.png" alt="Logo Universal Audio">
+                         <img id="logo-neumann" src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
+                         <img id="logo-canon" src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
+                         <img id="logo-uad" src="https://i.postimg.cc/4YSG0xbJ/UAD-LOGO.png" alt="Logo Universal Audio">
                     </div>
                 </footer>
             </main>
