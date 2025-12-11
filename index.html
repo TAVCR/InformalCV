@@ -113,10 +113,13 @@
             justify-content: flex-start; /* Alineación del contenido interno al inicio */
             margin: auto 0; /* Margen vertical automático para centrar el bloque */
             
+            /* LÍNEA DIVISORIA (BORDE IZQUIERDO) */
+            border-left: 2px solid #bae6fd; /* Borde visible de la columna */
+            
             /* APLICAR DESPLAZAMIENTO VERTICAL */
             transform: translateY(var(--v-offset)); 
         }
-
+        
         /* Sección Inferior Horizontal Azul */
         .bottom-bar {
             background-color: #1e293b; 
@@ -212,6 +215,15 @@
         .contact-item { display: flex; align-items: flex-start; margin-bottom: 0.5rem; }
 
         .contact-text { word-break: break-all; }
+
+        .main-content-footer { /* Nuevo pie de página de la columna blanca */
+            margin-top: auto; /* Empuja el footer al final del espacio */
+            text-align: center;
+            font-size: 0.7rem;
+            color: #94a3b8; /* Tono de gris suave */
+            padding-top: 1rem;
+            border-top: 1px dashed #e2e8f0;
+        }
 
         @media print {
             .sidebar { padding: 3rem 1.5rem 2rem 1.5rem !important; }
@@ -373,6 +385,11 @@
                         </ul>
                     </div>
                 </section>
+                
+                <!-- PIE DE PÁGINA ESPECÍFICO DE LA COLUMNA BLANCA -->
+                <footer class="main-content-footer">
+                    Uso tecnología Neumann, Canon y Universal Audio.
+                </footer>
             </main>
         </div>
 
