@@ -32,7 +32,7 @@
 
         /* --- VISTA DE DOCUMENTO A4 (WEB) --- */
         .page-a4 {
-            background: #f5f5f5; /* CORRECCIÓN: Fondo de la página en gris tenue */
+            background: #ffffff; /* Fondo principal en blanco */
             width: 210mm;
             /* Usamos la variable de altura para previsualizar la compensación */
             height: var(--print-height); 
@@ -103,10 +103,10 @@
             flex-direction: column;
         }
 
-        /* Contenido Principal Gris Tenue */
+        /* Contenido Principal Gris Más Oscuro */
         .main-content {
             width: 68%;
-            background-color: #f5f5f5; /* CORRECCIÓN: Fondo gris tenue */
+            background-color: #cccccc; /* CORRECCIÓN: Fondo gris más oscuro para contraste */
             /* AJUSTE DE ESPACIADO SUPERIOR Y INFERIOR MÁS COMPACTO */
             padding: 1rem 2.5rem 1rem 2.5rem; /* Reducido el padding superior/inferior */
             display: flex;
@@ -221,7 +221,7 @@
             margin-top: auto; /* Empuja el footer al final del espacio */
             text-align: center;
             font-size: 0.7rem;
-            color: #475569; /* Color de texto más oscuro para que resalte sobre el gris claro */
+            color: #475569; /* Color de texto más oscuro para que resalte sobre el gris */
             padding-top: 1rem;
             border-top: 1px dashed #e2e8f0;
         }
@@ -243,7 +243,7 @@
         /* AJUSTES INDIVIDUALES DE LOGO */
         #logo-neumann { height: 118.8px !important; } /* 135 * 0.88 */
         #logo-canon { height: 141.75px !important; } /* 135 * 1.05 */
-        #logo-uad { height: 170.775px !important; } /* 135 * 1.10 * 1.15 = 170.775px */
+        #logo-uad { height: 162.236px !important; } /* 170.775 * 0.95 = 162.236px */
 
         @media print {
             .sidebar { padding: 3rem 1.5rem 2rem 1.5rem !important; }
@@ -251,7 +251,7 @@
             .main-content { 
                 padding: 1rem 2.5rem 0 2.5rem !important; /* Más compacto en impresión */
                 border-left: 2px solid #bae6fd !important; /* Asegurar el borde en impresión */
-                background-color: #f5f5f5 !important; /* Asegurar fondo gris tenue en impresión */
+                background-color: #cccccc !important; /* Asegurar fondo gris más oscuro en impresión */
             }
             .bottom-bar { padding: 1.5rem 2.5rem 3rem 2.5rem !important; }
             
