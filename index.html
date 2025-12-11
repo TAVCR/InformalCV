@@ -16,7 +16,7 @@
         :root {
             --print-scale: 1;
             --print-height: 297mm; /* Altura base A4 */
-            --v-offset: 0px; /* NUEVA VARIABLE: Desplazamiento vertical para afinación */
+            --v-offset: 10px; /* VALOR MODIFICADO: Desplazamiento vertical por defecto */
         }
 
         /* Aplicar la fuente "Montserrat" a todo */
@@ -102,12 +102,12 @@
             flex-direction: column;
         }
 
-        /* Contenido Principal Blanco */
+        /* Contenido Principal Blanco (Cambiado a gris claro para contraste de logos) */
         .main-content {
             width: 68%;
-            background-color: #ffffff;
-            /* AJUSTE REALIZADO: Reducido a 1.5rem para subir el bloque de texto */
-            padding: 1.5rem 2.5rem 1rem 2.5rem;
+            background-color: #f0f0f0; /* Gris muy claro */
+            /* AJUSTE DE ESPACIADO SUPERIOR Y INFERIOR MÁS COMPACTO */
+            padding: 1rem 2.5rem 1rem 2.5rem; 
             display: flex;
             flex-direction: column;
             justify-content: flex-start; /* Alineación del contenido interno al inicio */
@@ -220,15 +220,32 @@
             margin-top: auto; /* Empuja el footer al final del espacio */
             text-align: center;
             font-size: 0.7rem;
-            color: #94a3b8; /* Tono de gris suave */
+            color: #475569; /* Color de texto más oscuro para que resalte sobre el gris claro */
             padding-top: 1rem;
             border-top: 1px dashed #e2e8f0;
+        }
+        
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Aumento de la separación entre logos */
+            margin-top: 8px;
+        }
+        
+        .brand-logos img {
+            height: 35px; /* TAMAÑO AUMENTADO para mejor visibilidad */
+            width: auto;
+            opacity: 0.85; /* Aumento de opacidad */
         }
 
         @media print {
             .sidebar { padding: 3rem 1.5rem 2rem 1.5rem !important; }
-            /* AJUSTE REALIZADO TAMBIÉN EN PRINT: Reducido a 1.5rem */
-            .main-content { padding: 1.5rem 2.5rem 0 2.5rem !important; }
+            /* AJUSTE DE PADDING EN IMPRESIÓN */
+            .main-content { 
+                padding: 1rem 2.5rem 0 2.5rem !important; /* Más compacto en impresión */
+                border-left: 2px solid #bae6fd !important; /* Asegurar el borde en impresión */
+            }
             .bottom-bar { padding: 1.5rem 2.5rem 3rem 2.5rem !important; }
             
             #main-profile-text {
@@ -254,11 +271,11 @@
         
         <div class="flex items-center justify-between border-t border-slate-500 pt-3 mt-3">
             <h4 class="text-white text-xs font-bold uppercase tracking-wider">Ajuste Vertical</h4>
-            <span id="v-offset-value" class="font-mono text-sky-400 font-bold text-sm">0 px</span>
+            <span id="v-offset-value" class="font-mono text-sky-400 font-bold text-sm">10 px</span>
         </div>
         
         <label for="print-v-align-slider" class="text-white text-xs">Desplazar Columna Derecha (px)</label>
-        <input type="range" id="print-v-align-slider" min="-25" max="25" step="1" value="0" 
+        <input type="range" id="print-v-align-slider" min="-25" max="25" step="1" value="10" 
                 class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
                 
         <p class="text-[10px] text-slate-400 mt-3 leading-tight text-justify">
@@ -388,7 +405,12 @@
                 
                 <!-- PIE DE PÁGINA ESPECÍFICO DE LA COLUMNA BLANCA -->
                 <footer class="main-content-footer">
-                    Uso tecnología Neumann, Canon y Universal Audio.
+                    Utilizo tecnología Neumann, Canon y Universal Audio.
+                    <div class="brand-logos">
+                         <img src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
+                         <img src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
+                         <img src="https://i.postimg.cc/4YSG0xbJ/UAD-LOGO.png" alt="Logo Universal Audio">
+                    </div>
                 </footer>
             </main>
         </div>
