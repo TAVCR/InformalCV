@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Gustavo González</title>
+    <!-- OPTIMIZACIÓN ATS: Título descriptivo con rol y palabras clave -->
+    <title>CV - Gustavo González - Senior Multimedia Producer & AI Specialist</title>
+    <meta name="author" content="Gustavo González">
+    <meta name="description" content="Senior Multimedia Producer utilizing AI workflows, DaVinci Resolve, ComfyUI, and high-end video production techniques.">
+    <meta name="keywords" content="Multimedia Producer, AI Workflows, DaVinci Resolve, ComfyUI, Video Editing, Post-Production, Voice Over, Industrial Engineer">
+
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Carga de la fuente "Montserrat" con múltiples pesos -->
@@ -91,6 +96,8 @@
             display: flex;
             flex-grow: 1; /* Ocupa todo el espacio vertical disponible */
             align-items: stretch; /* Estira las columnas al máximo */
+            /* OPTIMIZACIÓN ATS: Invertimos el orden visual para que el HTML sea Main primero, Sidebar después */
+            flex-direction: row-reverse;
         }
 
         /* Sidebar Azul */
@@ -306,9 +313,64 @@
     <div class="page-a4 shadow-2xl">
         
         <!-- ZONA SUPERIOR: 2 COLUMNAS -->
+        <!-- OPTIMIZACIÓN ATS: El código HTML tiene Main primero, pero CSS lo muestra a la derecha con row-reverse -->
         <div class="top-row">
             
-            <!-- SIDEBAR -->
+            <!-- MAIN CONTENT (Primero en código = Primero en lectura ATS) -->
+            <main class="main-content">
+                <header class="mb-8">
+                    <h1 class="uppercase">GUSTAVO GONZÁLEZ</h1>
+                    <h2 class="uppercase">
+                        <span id="main-role">SENIOR MULTIMEDIA PRODUCER</span>
+                        <span id="main-subrole" class="block text-lg font-medium text-slate-500 normal-case mt-1">(Video • Photography • Graphic Design • Post-Production • Audio)</span>
+                    </h2>
+                </header>
+
+                <section>
+                    <h3 id="main-profile-title">PROFESSIONAL PROFILE</h3>
+                    <p id="main-profile-text" class="text-justify">
+                        Senior Multimedia Producer & Digital Creative Specialist. While I have a strong background in professional voice-over, my primary expertise lies in crafting complete visual narratives through high-end video editing, graphic design, and post-production. I distinguish myself by deeply integrating cutting-edge technology—leveraging advanced Artificial Intelligence workflows for generative video and image synthesis to solve complex creative challenges efficiently. I combine the eye of a photographer, the technical skill of a senior editor, and the voice of a broadcaster to deliver modern, visually stunning solutions.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 id="main-exp-title">PROFESSIONAL EXPERIENCE</h3>
+                    
+                    <div class="mb-6">
+                        <h4 id="job1-title" class="text-lg">DIGITAL CONTENT PRODUCER</h4>
+                        <p id="job1-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Freelance / Independent Consultant | 2018 – Present</p>
+                        <p id="job1-desc" class="mb-2 text-justify">
+                            Strategic production of visual content for diverse clients (Social Media/Digital Campaigns).
+                        </p>
+                        <ul id="job1-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
+                            <li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos, midiendo engagement via analytics.</li><li>Integré AI en producción: Usando ComfyUI (Flux, Nanobanana, Reve) para generar imágenes custom y optimizar código para apps básicas, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable para digital campaigns con ROI medible.</li>
+                        </ul>
+                    </div>
+
+                    <div> 
+                        <h4 id="job2-title" class="text-lg">SENIOR AUDIO DESIGNER & VOICE ARTIST</h4>
+                        <p id="job2-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Foundational Experience | Multiple Corporate Clients | 2001 – 2018</p>
+                        <p id="job2-desc" class="mb-2 text-justify">
+                            17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.
+                        </p>
+                        <ul id="job2-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
+                            <li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), now powered by AI for 2025 efficiency.</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- PIE DE PÁGINA ESPECÍFICO DE LA COLUMNA BLANCA -->
+                <footer class="main-content-footer">
+                    <span id="footer-tech-text">Utilizo tecnología Neumann, Canon y Universal Audio.</span>
+                    <div class="brand-logos">
+                         <img id="logo-neumann" src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
+                         <img id="logo-canon" src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
+                         <img id="logo-uad" src="https://i.postimg.cc/4YSG0xbJ/UAD-LOGO.png" alt="Logo Universal Audio">
+                    </div>
+                </footer>
+            </main>
+            
+            <!-- SIDEBAR (Segundo en código = Segundo en lectura ATS, pero CSS lo muestra a la Izquierda) -->
             <aside class="sidebar">
                 <!-- Foto -->
                 <div style="flex-shrink: 0;">
@@ -367,59 +429,6 @@
                 </div>
             </aside>
 
-            <!-- MAIN CONTENT -->
-            <main class="main-content">
-                <header class="mb-8">
-                    <h1 class="uppercase">GUSTAVO GONZÁLEZ</h1>
-                    <h2 class="uppercase">
-                        <span id="main-role">SENIOR MULTIMEDIA PRODUCER</span>
-                        <span id="main-subrole" class="block text-lg font-medium text-slate-500 normal-case mt-1">(Video • Photography • Graphic Design • Post-Production • Audio)</span>
-                    </h2>
-                </header>
-
-                <section>
-                    <h3 id="main-profile-title">PROFESSIONAL PROFILE</h3>
-                    <p id="main-profile-text" class="text-justify">
-                        Senior Multimedia Producer & Digital Creative Specialist. While I have a strong background in professional voice-over, my primary expertise lies in crafting complete visual narratives through high-end video editing, graphic design, and post-production. I distinguish myself by deeply integrating cutting-edge technology—leveraging advanced Artificial Intelligence workflows for generative video and image synthesis to solve complex creative challenges efficiently. I combine the eye of a photographer, the technical skill of a senior editor, and the voice of a broadcaster to deliver modern, visually stunning solutions.
-                    </p>
-                </section>
-
-                <section>
-                    <h3 id="main-exp-title">PROFESSIONAL EXPERIENCE</h3>
-                    
-                    <div class="mb-6">
-                        <h4 id="job1-title" class="text-lg">DIGITAL CONTENT PRODUCER</h4>
-                        <p id="job1-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Freelance / Independent Consultant | 2018 – Present</p>
-                        <p id="job1-desc" class="mb-2 text-justify">
-                            Strategic production of visual content for diverse clients (Social Media/Digital Campaigns).
-                        </p>
-                        <ul id="job1-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
-                            <li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos, midiendo engagement via analytics.</li><li>Integré AI en producción: Usando ComfyUI (Flux, Nanobanana, Reve) para generar imágenes custom y optimizar código para apps básicas, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable para digital campaigns con ROI medible.</li>
-                        </ul>
-                    </div>
-
-                    <div> 
-                        <h4 id="job2-title" class="text-lg">SENIOR AUDIO DESIGNER & VOICE ARTIST</h4>
-                        <p id="job2-meta" class="text-sm font-semibold text-sky-700 italic mb-2">Foundational Experience | Multiple Corporate Clients | 2001 – 2018</p>
-                        <p id="job2-desc" class="mb-2 text-justify">
-                            17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.
-                        </p>
-                        <ul id="job2-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
-                            <li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), now powered by AI for 2025 efficiency.</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- PIE DE PÁGINA ESPECÍFICO DE LA COLUMNA BLANCA -->
-                <footer class="main-content-footer">
-                    <span id="footer-tech-text">Utilizo tecnología Neumann, Canon y Universal Audio.</span>
-                    <div class="brand-logos">
-                         <img id="logo-neumann" src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
-                         <img id="logo-canon" src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
-                         <img id="logo-uad" src="https://i.postimg.cc/4YSG0xbJ/UAD-LOGO.png" alt="Logo Universal Audio">
-                    </div>
-                </footer>
-            </main>
         </div>
 
         <!-- ZONA INFERIOR: HORIZONTAL AZUL -->
