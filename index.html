@@ -405,14 +405,14 @@
                             17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.
                         </p>
                         <ul id="job2-list" class="list-disc list-inside text-slate-700 space-y-2 leading-relaxed font-medium">
-                            <li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), ahora potenciados con AI para eficiencia en 2025.</li>
+                            <li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), now powered by AI for 2025 efficiency.</li>
                         </ul>
                     </div>
                 </section>
                 
                 <!-- PIE DE PÁGINA ESPECÍFICO DE LA COLUMNA BLANCA -->
                 <footer class="main-content-footer">
-                    Utilizo tecnología Neumann, Canon y Universal Audio.
+                    <span id="footer-tech-text">Utilizo tecnología Neumann, Canon y Universal Audio.</span>
                     <div class="brand-logos">
                          <img id="logo-neumann" src="https://i.postimg.cc/zycNQGSz/NEUMANN-LOGO.png" alt="Logo Neumann">
                          <img id="logo-canon" src="https://i.postimg.cc/ZWMmQ5F5/CANON-LOGO.png" alt="Logo Canon">
@@ -448,7 +448,7 @@
                 <div>
                     <h4 id="footer-stack-cameras">CÁMARAS Y LENTES</h4>
                     <ul id="footer-list-cameras">
-                        <li>Canon R5 II con RF 24-105mm f/2.8 L y RF 35mm f/1.8 STM —para capturas 8K raw en entornos dinámicos.</li>
+                        <li>Canon R5 II with RF 24-105mm f/2.8 L y RF 35mm f/1.8 STM —para capturas 8K raw en entornos dinámicos.</li>
                     </ul>
 
                     <h4 id="footer-stack-workstation">ESTACIÓN DE TRABAJO</h4>
@@ -462,7 +462,7 @@
                 <div>
                     <h4 id="footer-stack-audio">EQUIPO DE AUDIO</h4>
                     <ul id="footer-list-audio">
-                        <li>Neumann U87/M149 con MT48 Interface —para vozovers broadcast-quality.</li>
+                        <li>Neumann U87/M149 with MT48 Interface —para vozovers broadcast-quality.</li>
                     </ul>
 
                     <h4 id="footer-stack-lighting">ILUMINACIÓN Y SOPORTES</h4>
@@ -507,6 +507,9 @@
                 job2Meta: "Foundational Experience | Multiple Corporate Clients | 2001 – 2018",
                 job2Desc: "17+ years as lead audio designer/voice talent for top brands. Current station voice for AMOR FM.",
                 job2List: `<li>Key voice for global brands (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrating Adobe Audition expertise to Fairlight in Resolve for modern workflows.</li><li>Managed complete audio cycles (scripting, casting, mix), now powered by AI for 2025 efficiency.</li>`,
+
+                // NUEVO: Traducción del texto junto a los logos
+                footerTechText: "Powered by Neumann, Canon & Universal Audio technology.",
 
                 // Títulos de Footer EN
                 footerMainTitle: "TECHNICAL ARSENAL",
@@ -559,6 +562,9 @@
                 job2Desc: "Más de 17 años como diseñador de audio/voz principal para grandes marcas. Voz actual de AMOR FM.",
                 job2List: `<li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), ahora potenciados con AI para eficiencia en 2025.</li>`,
                 
+                // NUEVO: Texto original en español para el footer
+                footerTechText: "Utilizo tecnología Neumann, Canon y Universal Audio.",
+
                 // Títulos de Footer ES
                 footerMainTitle: "ARSENAL TÉCNICO",
                 footerSummaryText: "Uso estos tools para workflows híbridos: AI acelera prototipos, hardware asegura calidad pro.",
@@ -615,6 +621,9 @@
             document.getElementById('job2-meta').innerText = t.job2Meta;
             document.getElementById('job2-desc').innerText = t.job2Desc;
             document.getElementById('job2-list').innerHTML = t.job2List;
+
+            // NUEVO: Actualización dinámica del texto de tecnología
+            document.getElementById('footer-tech-text').innerText = t.footerTechText;
 
             document.getElementById('footer-main-title').innerText = t.footerMainTitle;
             // NEW SUMMARY TEXT
