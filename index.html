@@ -16,7 +16,7 @@
         :root {
             --print-scale: 1;
             --print-height: 297mm; /* Altura base A4 */
-            --v-offset: 10px; /* VALOR MODIFICADO: Desplazamiento vertical por defecto */
+            --v-offset: 10px; /* Desplazamiento vertical por defecto */
         }
 
         /* Aplicar la fuente "Montserrat" a todo */
@@ -106,9 +106,9 @@
         /* Contenido Principal Gris Más Oscuro */
         .main-content {
             width: 68%;
-            background-color: #cccccc; /* CORRECCIÓN: Fondo gris más oscuro para contraste */
+            background-color: #cccccc; /* Fondo gris más oscuro para contraste */
             /* AJUSTE DE ESPACIADO SUPERIOR Y INFERIOR MÁS COMPACTO */
-            padding: 1rem 2.5rem 1rem 2.5rem; /* Reducido el padding superior/inferior */
+            padding: 1rem 2.5rem 1rem 2.5rem; 
             display: flex;
             flex-direction: column;
             justify-content: flex-start; /* Alineación del contenido interno al inicio */
@@ -274,7 +274,7 @@
         
         <label for="print-scale-slider" class="text-white text-xs mt-3">Ajuste de Escala (Zoom)</label>
         <input type="range" id="print-scale-slider" min="0.80" max="1.05" step="0.01" value="1.00" 
-                class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
+               class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
         
         <div class="flex items-center justify-between border-t border-slate-500 pt-3 mt-3">
             <h4 class="text-white text-xs font-bold uppercase tracking-wider">Ajuste Vertical</h4>
@@ -283,7 +283,7 @@
         
         <label for="print-v-align-slider" class="text-white text-xs">Desplazar Columna Derecha (px)</label>
         <input type="range" id="print-v-align-slider" min="-25" max="25" step="1" value="10" 
-                class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
+               class="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-500 hover:accent-sky-400">
                 
         <p class="text-[10px] text-slate-400 mt-3 leading-tight text-justify">
             <span class="text-sky-400 font-bold">Instrucciones:</span> Utiliza el deslizador vertical para centrar el texto blanco en el papel si la escala ha movido el contenido.
@@ -380,7 +380,7 @@
                 <section>
                     <h3 id="main-profile-title">PROFESSIONAL PROFILE</h3>
                     <p id="main-profile-text" class="text-justify">
-                        Senior Multimedia Producer con +25 años de experiencia, fusionando video profesional, fotografía, diseño gráfico y audio de alta gama con innovación impulsada por IA. Como Ingeniero Industrial, optimizo workflows para problemas del 2025: desde generación de imágenes con ComfyUI hasta automatización de apps básicas vía código asistido por IA. Entrego assets digitales de alto impacto, adaptándome a herramientas emergentes para elevar marcas en un ecosistema digital volátil.
+                        Senior Multimedia Producer & Digital Creative Specialist. While I have a strong background in professional voice-over, my primary expertise lies in crafting complete visual narratives through high-end video editing, graphic design, and post-production. I distinguish myself by deeply integrating cutting-edge technology—leveraging advanced Artificial Intelligence workflows for generative video and image synthesis to solve complex creative challenges efficiently. I combine the eye of a photographer, the technical skill of a senior editor, and the voice of a broadcaster to deliver modern, visually stunning solutions.
                     </p>
                 </section>
 
@@ -488,19 +488,20 @@
                 sidebarAcademicDegree: "Master's in Industrial Engineering",
                 sidebarAcademicUni: "Interamericana University of Costa Rica",
                 sidebarSkills: "CORE SKILLS",
-                // MODIFICADO: Nueva estructura de habilidades EN
-                sidebarSkillsList: `<li><strong>CREATIVE PRODUCTION</strong></li><li>End-to-End Video Production & Color Grading</li><li>Professional Photography (RAW) & On-Screen Graphics</li><li>Professional Audio Design & Post-Production (Resolve/Audition)</li><li><strong>TECHNICAL INNOVATION</strong></li><li>AI Integration: ComfyUI for Image Gen & AI-Assisted Coding for Workflow Optimization</li><li>Process & Workflow Management with Emerging Tools</li><li><strong>MANAGEMENT</strong></li><li>Strategic Content Planning for Digital Campaigns</li>`,
+                // MODIFICADO: Clarificación de que el código es generado por IA
+                sidebarSkillsList: `<li><strong>CREATIVE PRODUCTION</strong></li><li>End-to-End Video Production & Color Grading</li><li>Professional Photography (RAW) & On-Screen Graphics</li><li>Professional Audio Design & Post-Production (Resolve/Audition)</li><li><strong>TECHNICAL INNOVATION</strong></li><li>AI Integration: ComfyUI for Image Gen & AI-Generated Scripting (No-Code/Low-Code Solutions)</li><li>Process & Workflow Management with Emerging Tools</li><li><strong>MANAGEMENT</strong></li><li>Strategic Content Planning for Digital Campaigns</li>`,
                 
-                mainRole: "SENIOR MULTIMEDIA PRODUCER",
+                mainRole: "SENIOR MULTIMEDIA PRODUCER & DIGITAL SPECIALIST",
                 mainSubrole: "(Video • Photography • Graphic Design • Post-Production • Audio)",
                 mainProfileTitle: "PROFESSIONAL PROFILE",
-                mainProfileText: "Senior Multimedia Producer with 25+ years experience, fusing professional video, photography, graphic design, and high-end audio with AI-driven innovation. As an Industrial Engineer, I optimize workflows for 2025 problems: from image generation with ComfyUI to basic app automation via AI-assisted coding. I deliver high-impact digital assets, adapting to emerging tools to elevate brands in a volatile digital ecosystem.",
+                // MODIFICADO: Locución movida al final como complemento
+                mainProfileText: "Senior Multimedia Producer specializing in high-impact visual narratives and digital innovation. I merge expert video editing, graphic design, and post-production with cutting-edge AI workflows—generating not just media, but functional automation scripts to optimize production without traditional programming. My background in Industrial Engineering drives efficiency, while my experience as a professional voice artist serves as a unique complement to my core visual and technical services.",
                 mainExpTitle: "PROFESSIONAL EXPERIENCE",
                 
                 job1Title: "DIGITAL CONTENT PRODUCER",
                 job1Meta: "Freelance / Independent Consultant | 2018 – Present",
                 job1Desc: "Strategic production of visual content for diverse clients (Social Media/Digital Campaigns).",
-                job1List: `<li>Developed C-Log 2 video and RAW photo workflows that increased social campaign quality by 40% for various clients, measuring engagement via analytics.</li><li>Integrated AI into production: Used ComfyUI (Flux, Nanobanana, Reve) for custom image generation and optimized coding for basic apps, reducing post-production times by 50%.</li><li>Animated dynamic graphics in DaVinci Resolve and broadcast audio in Adobe Audition/Canva, delivering scalable content for digital campaigns with measurable ROI.</li>`,
+                job1List: `<li>Developed C-Log 2 video and RAW photo workflows that increased social campaign quality by 40% for various clients, measuring engagement via analytics.</li><li>Integrated AI into production: Used ComfyUI for custom images and leveraged AI code generation to build functional scripts/tools, reducing post-production times by 50%.</li><li>Animated dynamic graphics in DaVinci Resolve and broadcast audio in Adobe Audition/Canva, delivering scalable content for digital campaigns with measurable ROI.</li>`,
 
                 job2Title: "SENIOR AUDIO DESIGNER & VOICE ARTIST",
                 job2Meta: "Foundational Experience | Multiple Corporate Clients | 2001 – 2018",
@@ -531,28 +532,29 @@
             },
             es: {
                 langBtnText: "View in English",
-                // Títulos de Sidebar ES (CORREGIDOS)
+                // Títulos de Sidebar ES
                 sidebarContact: "CONTACTO",
                 sidebarAcademic: "FORMACIÓN ACADÉMICA",
                 sidebarAcademicDegree: "Maestría en Ingeniería Industrial",
                 sidebarAcademicUni: "Universidad Interamericana de Costa Rica",
                 sidebarSkills: "HABILIDADES CLAVE",
-                // MODIFICADO: Nueva estructura de habilidades ES - Traducimos los títulos fuertes y los detalles.
-                sidebarSkillsList: `<li><strong>PRODUCCIÓN CREATIVA</strong></li><li>Producción de Video Integral y Etalonaje (Color Grading)</li><li>Fotografía Profesional (RAW) y Gráficos en Pantalla</li><li>Diseño y Post-Producción de Audio Profesional (Resolve/Audition)</li><li><strong>INNOVACIÓN TÉCNICA</strong></li><li>Integración de IA: ComfyUI para Generación de Imagen y Código Asistido por IA para Optimización de Flujos</li><li>Gestión de Procesos y Flujos con Herramientas Emergentes</li><li><strong>GESTIÓN</strong></li><li>Planificación Estratégica de Contenido para Campañas Digitales</li>`,
+                // MODIFICADO: "Código Asistido" cambiado por "Generación de Código/Scripting"
+                sidebarSkillsList: `<li><strong>PRODUCCIÓN CREATIVA</strong></li><li>Producción de Video Integral y Etalonaje (Color Grading)</li><li>Fotografía Profesional (RAW) y Gráficos en Pantalla</li><li>Diseño y Post-Producción de Audio Profesional (Resolve/Audition)</li><li><strong>INNOVACIÓN TÉCNICA</strong></li><li>Integración de IA: ComfyUI para Generación de Imagen y Generación de Scripts vía IA (Soluciones No-Code)</li><li>Gestión de Procesos y Flujos con Herramientas Emergentes</li><li><strong>GESTIÓN</strong></li><li>Planificación Estratégica de Contenido para Campañas Digitales</li>`,
                 
-                mainRole: "PRODUCTOR MULTIMEDIA SENIOR",
+                mainRole: "PRODUCTOR MULTIMEDIA SENIOR Y ESPECIALISTA DIGITAL",
                 mainSubrole: "(Video • Fotografía • Diseño Gráfico • Postproducción • Audio)",
                 mainProfileTitle: "PERFIL PROFESIONAL",
-                // PERFIL PROFESIONAL AJUSTADO (usando "impulsada por IA" y "código asistido por IA")
-                mainProfileText: "Senior Multimedia Producer con +25 años de experiencia, fusionando video profesional, fotografía, diseño gráfico y audio de alta gama con innovación impulsada por IA. Como Ingeniero Industrial, optimizo workflows para problemas del 2025: desde generación de imágenes con ComfyUI hasta automatización de apps básicas vía código asistido por IA. Entrego assets digitales de alto impacto, adaptándome a herramientas emergentes para elevar marcas en un ecosistema digital volátil.",
+                // MODIFICADO: Cambio de "locutor profesional" a "comunicador y artista de VO"
+                mainProfileText: "Productor Multimedia Senior especializado en narrativas visuales de alto impacto e innovación digital. Fusiono la edición de video experta, el diseño gráfico y la postproducción con flujos de trabajo de IA de vanguardia, generando no solo medios, sino scripts de automatización funcional para optimizar la producción sin depender de programación tradicional. Mi formación en ingeniería industrial impulsa la eficiencia, mientras que mi experiencia como comunicador y artista de VO sirve como un complemento único a mis servicios visuales y técnicos principales.",
                 mainExpTitle: "EXPERIENCIA PROFESIONAL",
                 
                 job1Title: "PRODUCTOR DE CONTENIDO DIGITAL",
                 job1Meta: "Freelance / Consultor Independiente | 2018 – Presente",
                 job1Desc: "Producción estratégica de contenido visual para clientes diversos (Redes Sociales/Campañas Digitales).",
-                job1List: `<li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos, midiendo engagement via analytics.</li><li>Integré AI en producción: Usando ComfyUI (Flux, Nanobanana, Reve) para generar imágenes custom y optimizar código para apps básicas, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable para digital campaigns con ROI medible.</li>`, 
+                job1List: `<li>Desarrollé workflows de video (C-Log 2) y foto (RAW) que incrementaron la calidad de campañas sociales en un 40% para clientes diversos.</li><li>Integré IA en producción: Usando ComfyUI para imágenes y generando código mediante IA para crear micro-herramientas de automatización, reduciendo tiempos de post-producción en 50%.</li><li>Animé gráficos dinámicos en DaVinci Resolve y audio broadcast en Adobe Audition/Canva, entregando contenido escalable con ROI medible.</li>`, 
 
-                job2Title: "DISEÑADOR DE AUDIO SENIOR Y LOCUTOR",
+                // MODIFICADO: Cambio de "LOCUTOR" por "ARTISTA DE VO"
+                job2Title: "DISEÑADOR DE AUDIO SENIOR Y ARTISTA DE VO",
                 job2Meta: "Experiencia Fundacional | Múltiples Clientes Corporativos | 2001 – 2018",
                 job2Desc: "Más de 17 años como diseñador de audio/voz principal para grandes marcas. Voz actual de AMOR FM.",
                 job2List: `<li>Voz clave para marcas globales (Imperial, Pizza Hut, Promerica, Subway, Pepsi, etc.), migrando expertise de Adobe Audition a Fairlight en Resolve para workflows modernos.</li><li>Gestioné ciclos completos de audio (scripting, casting, mix), ahora potenciados con AI para eficiencia en 2025.</li>`,
